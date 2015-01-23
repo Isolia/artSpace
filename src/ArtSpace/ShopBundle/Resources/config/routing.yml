@@ -1,0 +1,19 @@
+art_space_shop_index:
+    path:     /index
+    defaults: { _controller: ArtSpaceShopBundle:Default:index }
+    
+art_space_shop_pricing:
+    path:     /pricing
+    defaults: { _controller: ArtSpaceShopBundle:Default:pricing }
+    
+art_space_shop_login:
+    path:     /login
+    defaults: { _controller: ArtSpaceShopBundle:default:login }
+    
+art_space_shop_register:
+    path:     /register
+    defaults: { _controller: ArtSpaceShopBundle:default:register}
+    
+art_space_shop_createdata:
+    path:     /createdata
+    defaults: { _controller: ArtSpaceShopBundle:CreateData:index }

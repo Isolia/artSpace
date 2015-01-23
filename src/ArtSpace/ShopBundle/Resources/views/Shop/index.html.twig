@@ -1,0 +1,264 @@
+{% extends 'ArtSpaceShopBundle::base.html.twig' %}
+
+{% block subtitle %}Home{% endblock  %}
+    
+
+{% block body %}
+            <section id="started">
+                <div class="container">
+                    <h1>Everything you need to create <br> an exceptional website</h1>
+                    <small> Free 14-day trial with 24/7 suport. No credit card required.</small><br>
+                    <a href="#"><div class="getStarted"> Get started </div></a>
+                    <a href="#" class="watchDemo"> Watch demo <img src="{{ asset ('img/watch.png') }}" alt="Button de lecture"></a>
+                </div> <!-- Fin Container -->
+                <div class="nameArtist">
+                    <p class="name"> Sara Blake <p>
+                    <p> Fine Artist </p>
+                </div> <!-- Fin nameArtist -->    
+            </section> <!-- Fin Started -->
+
+            <div id="feat">
+                <div class="container">
+                    <ul>
+                        <li><p>As featured in </p></li>
+                        <li><img src="{{ asset ('img/press/press-logo-fastco.png') }}" alt="Logo Fast Company"></li>
+                        <li><img src="{{ asset ('img/press/press-logo-time.png') }}" alt="Logo Time"></li>
+                        <li><img src="{{ asset ('img/press/press-logo-forbes.png') }}" alt="Logo Forbes"></li>
+                        <li><img src="{{ asset ('img/press/press-logo-techcrunch.png') }}" alt="Logo Tech Crunch"></li>
+                        <li><img src="{{ asset ('img/press/press-logo-pandodaily.png') }}" alt="Logo Pando Daily"></li>
+                        <li><img src="{{ asset ('img/press/press-logo-betabeat.png') }}" alt="Logo Beta Beat"></li>
+                    </ul>
+                </div> <!-- Fin Container -->
+            </div> <!-- Fin Feat -->
+
+            <section id="template">
+                <div class="container">
+                    <h2>Stunning designs from the start.</h2>
+                    <p>Art.space starts you with beautiful templates right out of the box — Each handcrafted by our<br/>
+                    award-winning design tam to make your content stand out.</p>
+
+                    <!-- Slider -->
+                    <div class="bckSlider">
+                        <ul class="bxslider">
+                          <li><img src="{{ asset ('img/slider_start/img1.png') }}" alt="Capture d'écran d'un site montrant des photos du parc national"></li>
+                          <li><img src="{{ asset ('img/slider_start/img2.png') }}" alt="Un surfeur devant la mer"></li>
+                          <li><img src="{{ asset ('img/slider_start/img3.png') }}" alt="Capture d'écran du site d'une boutique, avec une photo d'un modèle en son centre"></li>
+                          <li><img src="{{ asset ('img/slider_start/img4.png') }}" alt="Capture d'écran d'un site avec diverses photos."></li>
+                          <li><img src="{{ asset ('img/slider_start/img5.png') }}" alt="Capture d'écran du site d'un/une artiste peintre, repertoriant une parties de ses oeuvres"></li>
+                          <li><img src="{{ asset ('img/slider_start/img6.png') }}" alt="Capture d'écran du site d'un/une photographe, repertoriant une parties de ses photographies"></li>
+                        </ul>
+                    </div> <!-- Fin BckSlider -->
+                </div> <!-- Fin Container --> 
+            </section> <!-- Fin Template -->
+
+            <section id="page">
+                <div class="container">
+                    <h2>Pages, galleries, and blogs.<br> 
+                    All in one platform.</h2>
+                    <p>Whether you need simple pages, sophisticatedgalleries, or a professional blog — or any<br/>
+                    combination of each of those — it all comes standard with you website.</p>
+                    <img src="{{ asset ('img/tour-all-in-one.png') }}" alt="Représentation des différentes pages possible avec le site.">
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Page -->
+
+            <section id="layout">
+                <div class="container">
+                    <h2>Introducing layoutengine.<br> 
+                    A new page builder from artspace.</h2>
+                    <p>Our revolutionary LayoutEngine technology gives you the freedom to create visually rich pages<br/>
+                    with any configuration of text, images, or blocks by dragging items exactly where you want<br/>
+                    them. We lay things out in a perfect grid, so everything is always aligned.</p>
+                    <img src="{{ asset ('img/tour-layoutengine-video-poster.jpg') }}" alt="Représentation du LayoutEngine, que montre le côté back du site ">
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Layout -->
+
+            <section id="gallery">
+                <div class="container">
+                    <h2>Galleries with cutting-edge creative tools</h2>
+                    <p>Our photo galleries come with next-generation features you'll love. Enjoy easy uploading by<br/>
+                    gragging files from your desktop into the browser. Edit images any time you want with Aviary.<br/>
+                    Select the focal point of each image, ensuring the best crop possible.</p>
+                    <img src="{{ asset ('img/tour-gallery.jpg') }}" alt="Montrent les différents paramétres possible pour la gallerie.">
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Gallery -->
+
+            <section id="blog">
+                <div class="container">
+                    <h2>Sate-of-the-art blogging.</h2>
+                    <p>Effortlessly create content with our Page Builder and gallery system. Share easilly, map posts<br/>
+                    with native geolocation, and use our bookmarklet to reblog content from the web.</p>
+                    <figure>
+                        <div class="imgEntete"> </div>
+                            <ul class="bxslider">
+                              <li><img src="{{ asset ('img/slider_blog/tour-blog-backend.jpg') }}" alt="Présentation de la partie administration du site, en montrant l'édition d'un article pour le site"></li>
+                              <li><img src="{{ asset ('img/slider_blog/tour-blog-frontend-dialog.jpg') }}" alt="Aperçu de l'article avant validation"></li>
+                              <li><img src="{{ asset ('img/slider_blog/tour-blog-frontend.jpg') }}" alt="Capture de la mise en page une fois valider du l'article"></li>
+                            </ul>
+                        <div class="imgPied"> </div>
+                        <figcaption>Blogging management inerface</figcaption>
+                    </figure>
+
+                    <div class="import">
+                        <h3>Import seamlessly</h3>
+                        <p>Start where you left off by importing all of your<br/>
+                        content from WordPress, Tumblr, Posterous,<br/>
+                        Blogger, and Squarespace 5.</p>
+                        <div class="importImg">
+                            <img src="{{ asset ('img/icon/icon-wordpress-24-dark.png') }}" alt="Logo Wordpress">
+                            <img src="{{ asset ('img/icon/icon-tumblr-24-dark.png') }}" alt="Logo Tumblr">
+                            <img src="{{ asset ('img/icon/icon-posterous-24-dark.png') }}" alt="Logo Posterous">
+                            <img src="{{ asset ('img/icon/icon-blogger-24-dark.png') }}" alt="Logo Blogger">
+                            <img src="{{ asset ('img/icon/icon-artspace-24-dark.png') }}" alt="Logo Art.Space">
+                        </div>
+                    </div> <!-- Fin Import -->
+
+                    <div class="content">
+                        <h3>Push content out</h3>
+                        <p>Publicize your freshest content by setting your<br/>
+                        blog to auto-publish to all of your favorite<br/>
+                        social networks.</p>
+                        <img src="{{ asset ('img/icon/icon-facebook-24-dark.png') }}" alt="Logo Facebook">
+                        <img src="{{ asset ('img/icon/icon-twitter-24-dark.png') }}" alt="Logo Twitter">
+                        <img src="{{ asset ('img/icon/icon-google-24-dark.png') }}" alt="Logo Google">
+                        <img src="{{ asset ('img/icon/icon-tumblr-24-dark.png') }}" alt="Logo Tumblr">
+                    </div> <!-- Fin Content -->
+
+                    <div class="share">
+                        <h3>Share buttons</h3>
+                        <p>Make it easy to share your content across the<br/>
+                        web by adding the social buttons you know<br/>
+                        your visitors use.</p>
+                        <img src="{{ asset ('img/icon/icon-facebook-24-dark.png') }}" alt="Logo Facebook">
+                        <img src="{{ asset ('img/icon/icon-twitter-24-dark.png') }}" alt="Logo Twitter">
+                        <img src="{{ asset ('img/icon/icon-google-24-dark.png') }}" alt="Logo Google">
+                        <img src="{{ asset ('img/icon/icon-linkedin-24-dark.png') }}" alt="Logo Linkedin">
+                        <img src="{{ asset ('img/icon/icon-stumbleupon-24-dark.png') }}" alt="Logo Stumble Upon">
+                        <img src="{{ asset ('img/icon/icon-reddit-24-dark.png') }}" alt="Logo Reddit">
+                        <img src="{{ asset ('img/icon/icon-pinterest-24-dark.png') }}" alt="Logo Pinterest">
+                    </div> <!-- Fin Share -->
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Blog -->
+
+            <section id="custom">
+                <div class="container">
+                    <h2>The custom look you want.</h2>
+                    <p>Make any template your own with a few clicks in the style editor. Choose a preset color palette<br/>
+                    or select your own font, colors, and layouts to create the custom look you want.</p>
+                    <img src="{{ asset ('img/tour-style-editor.jpg') }}" alt="Présentation des différents template et customisation du site">
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Custom -->
+
+            <section id="mobile">
+                <div class="container">
+                    <div class="mobileSite">
+                        <h2>Mobile sites built right in.</h2>
+                        <p>Each template includes a unique mobile<br/>
+                        design, so anyone can see the beauty of your work<br/>
+                        anytime, anyplace, on any device.</p>
+                        <img src="{{ asset ('img/tour-mobile-logos.png') }}" alt="Logo d'Apple, Android et Windows">
+                    </div> <!-- Fin MobileSite -->
+
+                    <img class="tourMobile" src="{{ asset ('img/tour-mobile.png') }}" alt="Tablette et smarphone affichant le site pour montrer que celui-ci est responsive">
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Mobile -->
+
+            <section id="connect">
+                <div class="container">
+                    <div class="connect_leftCol">
+                        <h2>Connect with the services you love.</h2>
+                        <p>Make your website the center of your online identity and social life on the web with an array of powerful tools.</p>
+                        <img src="{{ asset ('img/tour-social-blob.png') }}" alt="Schéma représentant tout les outils social d'internet">
+                    </div> <!-- Fin connect_leftCol -->
+
+                    <div class="connect_rigthCol">
+                        <h3>Import</h3>
+                        <p>Automatically pull in your latest Twitter<br/>
+                        stream and Instagram photos to be<br/>
+                        beautifully displayed on your site.</p>
+
+                        <h3>Sync</h3>
+                        <p>Take any page or gallery from your site and<br/>
+                        seamlessly publish it on your Facebook Page.</p>
+
+                        <h3>Publish</h3>
+                        <p>Let your blog automattically tweet for you<br/>
+                        whenever you post something new.</p>
+                    </div> <!-- Fin connect_rigthCol -->
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Connect -->
+
+            <section id="comment">
+                <div class="container">
+                    <div class="commentImg">
+                        <img src="{{ asset ('img/tour-comments.png') }}" alt="Présentation de la gestion des commentaires du site">
+                    </div> <!-- fin commentImg -->
+
+                    <div class="commentText">
+                        <h2>Powerful commenting.</h2>
+                        <p>Real-time posting and threading makes comment activity<br/>
+                        easy to engage with. Our comment moderating and spam<br/>
+                        filtering tools have never been more powerfil. Your<br/>
+                        readers can login using Twitter and Facebook, and you<br/>
+                        can integrate Disqus.</p>
+                    </div> <!-- Fin commentText-->
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Comment -->
+
+            <section id="statistic">
+                <div class="container">
+                    <h2>Real-time statistics for audience insight.</h2>
+                    <p>Access your built-in analytics to view the traffic and behavior of visitors in real-time. Learn where<br/>
+                    they're coming from, and what keywords they're using to find you.</p>
+                    <div class="imgEntete"> </div>
+                    <img src="{{ asset ('img/tour-stats.jpg') }}" alt="Présentation de la partie qui permet de voir l'activitée du site, notamment le nombre de visite">
+                    <div class="imgPied"> </div>
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Statistic -->
+
+            <section id="supplement"> 
+                <div class="container">
+                   <div class="supplementTop">
+                        <div class="search">
+                            <h2>Search engine optimized.</h2>
+                            <p>Art.space websites includes clean article links, proper tagging,<br/>
+                            XML sitemaps, and valid XHTML code. All of which make your<br/>
+                            website loved by search engines.</p>
+                            <div class="photo"></div>
+                            <div class="ceo">Rob Space, CEO | <img src="{{ asset ('img/seomoz.png') }}" alt="Logo Seo Moz"></div>
+                            <div class="quote">“</div></p><blockquote><p>The team has put togther a remarkable<br/>
+                            platform. Every aspect of the product - user experience,<br/>
+                            featureset, SEO friendliness, design and more - all work<br/>
+                            together to create one of the few content management<br/>
+                            systems I'm proud to recomment."</p></blockquote>
+                        </div> <!-- Fin Search -->
+                        
+                        <div class="contributors">
+                            <h2>Choose your contributors.</h2>
+                            <p>Invite contributors to help you manage your website. Set<br/>
+                            individual permissions, from full admin to a trusted commenter, so<br/>
+                            you are always in control.</p>
+                            <img src="{{ asset ('img/tour-contributors.png') }}" alt="Présentation de l'attribution des droits données pour la gestion du site internet">
+                        </div> <!-- Fin Contributors -->
+                    </div> <!--Fin Supplement top -->
+                </div> <!-- Fin Container -->
+
+                <hr>
+
+                <div class="container">
+                    <div class="supplementBot">
+                        <div class="cloud">
+                            <h2>Cloud hosting from the best.</h2>
+                            <p>With our reliable and scalable cloud infrastructure, there's no downtime, and nothing to install, patch, or upgrade.</p>
+                            <img src="{{ asset ('img/tour-clouds.png') }}" alt="Nuages noir avec le logo d'Art.space">
+                        </div> <!-- Fin Cloud -->
+
+                        <div class="domain">
+                            <h2>Custom domain names.</h2>
+                            <p>Art.space makes adding your custom domain simple, and<br/>
+                            every annual account receives a free custom domain.</p>
+                            <img src="{{ asset ('img/tour-domain.png') }}" alt="Zoom sur l'adresse internet du site, avec une loupe">
+                        </div> <!-- fin Domain -->
+                    </div> <!--Fin SupplementBot -->
+                </div> <!-- Fin Container -->
+            </section> <!-- Fin Supplement -->
+{% endblock  %}

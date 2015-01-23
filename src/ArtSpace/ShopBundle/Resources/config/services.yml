@@ -1,0 +1,4 @@
+services:
+#    art_space_shop.example:
+#        class: ArtSpace\ShopBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

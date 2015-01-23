@@ -1,0 +1,7 @@
+art_space_shop:
+    resource: "@ArtSpaceShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

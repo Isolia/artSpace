@@ -1,0 +1,76 @@
+{% extends 'ArtSpaceShopBundle::base.html.twig' %}
+
+{% block subtitle %}| Pricing{% endblock  %}
+
+{% block body %}
+                <section id="trial">
+                <h1>Free 14-day trial with 24/7 support</h1>
+                <a href="#"><div class="getStarted"> Get started </div></a>
+            </section> <!-- Fin Started -->
+            <div class="container">
+                <section id="offer">
+                    {% for product in products %}
+                    <div class="standard">
+                        <div class="standardTitle">
+                            <h2>{{ product.name }}</h2>
+                            <p><span class="exp">$</span><span class="number">{{ product.price }}</span><span>/MO</span></p>
+                            <p class="annual">Billed annually or $10 month-to-month</p>
+                        </div> <!-- Fin standard title -->
+
+                        {{ product.description | raw }}
+                    </div> <!-- Fin Standard -->
+                    {% endfor %}
+                  
+                </section> <!-- Fin Offer -->
+                
+                <div id="question">
+                    <section class="firstColumn">
+                        <h3>How long are your contracts?</h3>
+                        <p>Art.space plans are month-to-month yearly, or two years. We make it<br/>
+                        simple to start - and stop - your service at any time.</p>
+                        
+                        <h3>Is there a discount for yearly service?</h3>
+                        <p>Yes, we offer discounts on up-front long term commitments.</p>
+
+                        <h3>Do i need another web host?</h3>
+                        <p>No. All Art.space plans include our fully-managed cloud hosting,<br/>
+                        ensuring your website remains available at all times.</p>
+                    
+                        <h3>Can I download squarespace?</h3>
+                        <p>No. Art.Space is a fully-managed web service. We do not have plans<br/>
+                        to make a downloadable version. Art.space does provide many<br/>
+                        standard methods for exporting your data.</p>
+                        
+                        <h3>Do you offer email accounts?</h3>
+                        <p>While Art.space does not provide email accounts, you can easily link<br/>
+                        your domain to Google Apps and get free email.</p>
+
+                    </section> <!-- Fin firstColumn-->
+
+                    <section class="secondColumn">
+                        <h3>How do I sign up</h3>
+                        <p>You start with a free trial. We don't collect your credit card until you've<br/>
+                        determined Squarespace is the right product for you.</p>
+
+                        <h3>How do I cancel service?</h3>
+                        <p>Canceling Art.space is an easy and no-questions-asked process. It's<br/>
+                        done online right from your site manager.</p>
+
+                        <h3>Can I switch plans?</h3>
+                        <p>Yes, at any time, in your website manager. When upgrading or<br/>
+                        downgrading your website plan, you will receive either a pro-rated<br/>
+                        charge or refund, depending on the cost of your new plan.</p>
+
+                        <h3>What is meant by unlimed?</h3>
+                        <p>Certain Art.space packages do not have resource limits for normal<br/>
+                        usage. As per our Terms of Services, sites cannot exist for the sole<br/>
+                        purpose of file sharing.</p>
+
+                        <h3>Have more questions?</h3>
+                        <p>Our support team is available 24/7 and usually responds in well under an<br/>
+                        hour. Visit our <span class="support">Help & Support Center</span> to contact them.</p>
+                    </section> <!-- Fin secondColumn-->
+                </div> <!-- Fin Question -->
+            </div> <!-- Fin Container -->
+{% endblock  %}
+

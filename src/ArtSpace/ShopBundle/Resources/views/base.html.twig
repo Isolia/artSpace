@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
+        <title>Art.Space : {% block subtitle %}INVALID PAGE{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/icon/icon-artspace-24-dark.png') }}" />
+        <link rel="stylesheet" href="{{ asset('css/normalize.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+
+        <!-- Slider -->
+        <link rel="stylesheet" href="{{ asset('css/rslider.css') }}">
+        <script type="text/javascript" src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
+        <link href="{{ asset('css/jquery.bxslider.css" rel="stylesheet') }}"/>
+
+        <!-- Tooltipster -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/tooltipster.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/tooltipster-custom.css') }}" />
+        <script type="text/javascript" src="{{ asset('js/jquery.tooltipster.min.js') }}"></script>
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="mainContainer">
+            <header>
+                <div class="container">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo Art.Space">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ path('art_space_shop_index')}}">Tour</a></li>
+                            <li><a href="#">Template</a></li>
+                            <li><a href="#">Developers</a></li>
+                            <li><a href="{{ path('art_space_shop_pricing')}}">Pricing</a></li>
+                            <li><a href="{{ path('art_space_shop_register')}}">Register</a></li>
+                            <li><a href="{{ path('art_space_shop_login')}}">Login</a></li>
+                        </ul>
+                    </nav>
+                </div> <!-- Fin Container -->
+            </header>
+            {% block body %}
+                YOU SHOULD NOT SEE THIS
+            {% endblock %}
+        
+            <footer>
+                <div class="container">
+                    <div class="first-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.php">Tour</a></li>
+                            <li><a href="#">Templates</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">Developers</a></li>
+                            <li><a href="pricing.php">Pricing</a></li>
+                            <li><a href="login.php">Sign UP</a></li>
+                        </ul>
+                    </div> <!-- Fin first-column -->
+
+                    <div class="second-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press & Media</a></li>
+                            <li><a href="#">Environmental Impact</a></li>
+                            <li><a href="#">Affiliate Program</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div> <!-- Fin second-column -->
+
+                    <div class="third-column">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Help & Support</a></li>
+                            <li><a href="#">Answers</a></li>
+                            <li><a href="#">Workshop</a></li>
+                            <li><a href="#">Service Updates</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Google+</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div> <!-- Fin third-column -->
+
+                    <div class="fourth-column">
+                        <ul>
+                            <li><a href="#"><div class="tryItFree">Try it Free</div></a></li>
+                            <li><a href="#">Free 14-day trial.</a></li>
+                            <li><a href="#">No credit card required.</a></li>
+                            <li><a href="#">24/7 support.</a></li>
+                            <li><a href="#"></a></li>
+                            <li><img src="{{ asset('img/footer-truste.png') }}" alt="Logo Truste"></li>
+                        </ul>
+                    </div> <!-- Fin fourth-column -->
+                </div> <!-- Fin Container -->
+            </footer>
+        </div> <!-- Fin mainContent -->
+        <!--  JS Slider  -->
+        <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                pager:false,
+                controls: true,
+            });
+        });
+        </script>
+        
+        <!-- ToolTips -->
+        <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster({
+                theme: 'tooltipster-custom',
+                position: 'bottom-right',
+                arrow: false
+            });
+        });
+        </script>
+    </body>
+</html>

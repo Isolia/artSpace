@@ -1,0 +1,15 @@
+.tooltipster-custom {
+    border-radius: 5px;
+    background: black;
+    color: white;
+    max-width: 200px;
+    padding: 0 35px;
+}
+.tooltipster-custom .tooltipster-content {
+    font-family: 'Arial', 'sans-serif';
+    font-size: 12px;
+    text-align: left;
+    line-height: 16px;
+    padding: 10px 10px;
+}
+
