@@ -10,18 +10,18 @@ class DefaultController extends Controller
     {
         return $this->render('ArtSpaceShopBundle:Shop:index.html.twig' );
     }
-        
+    
+    // Permet d'aller chercher le nom de chaque section présente dans la base de donnée
     public function pricingAction()
     {        
-        $products = $this->getDoctrine()
-            ->getRepository('ArtSpaceShopBundle:Product')
+        $sections = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:Section')
             ->findAll();
 
-        if (!$products) {
-            throw $this->createNotFoundException('Aucun produit trouvé');
+        if (!$sections) {
+            throw $this->createNotFoundException('Aucune section trouvée');
         }
  
-         return $this->render('ArtSpaceShopBundle:Shop:pricing.html.twig', array('products' => $products) );
-    }
-    
+         return $this->render('ArtSpaceShopBundle:Shop:pricing.html.twig', array('sections' => $sections) );
+    }  
 }

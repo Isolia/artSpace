@@ -8,11 +8,11 @@ art_space_shop_pricing:
     
 art_space_shop_login:
     path:     /login
-    defaults: { _controller: ArtSpaceShopBundle:default:login }
+    defaults: { _controller: ArtSpaceShopBundle:User:login }
     
 art_space_shop_register:
     path:     /register
-    defaults: { _controller: ArtSpaceShopBundle:default:register}
+    defaults: { _controller: ArtSpaceShopBundle:User:register}
     
 art_space_shop_createdata:
     path:     /createdata

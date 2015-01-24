@@ -7,6 +7,8 @@ use ArtSpace\ShopBundle\Entity\PastOrder;
 use ArtSpace\ShopBundle\Entity\Product;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 use Doctrine\ORM\Mapping as ORM; 
 
 /**
@@ -15,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @var integer
@@ -39,7 +41,22 @@ class User
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
-
+    
+     /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     */
+    private $username;
+    
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $salt;
+    
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $password;
+    
     /**
      * @var string
      *
@@ -54,11 +71,19 @@ class User
      */
     private $email;
 
+     /**
+     * @var integer
+     *
+     * @ORM\Column(name="isAdmin", type="integer", length=1)
+     */
+    private $isAdmin;
+    
     /**
      * @var DateTime
      *
      * @ORM\Column(name="birthdate", type="date")
      */
+    
     private $birthdate;
 
     /**
@@ -75,7 +100,6 @@ class User
      * @ORM\OneToMany(targetEntity="PastOrder", mappedBy="user", cascade={"persist"})
      */
     private $pastOrders;
-    
    
     /**
      * Get id
@@ -207,6 +231,9 @@ class User
         $this->cart = new ArrayCollection();
         
         $this->pastOrders = new ArrayCollection();
+        
+        $this->isAdmin = false;
+        $this->salt = md5(uniqid(null, true));
     }
 
     /**
@@ -274,4 +301,108 @@ class User
     {
         return $this->pastOrders;
     }
+    
+     /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    
+     /**
+     * Get Salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+     /**
+     * Get Password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    
+     /**
+     * Get Roles
+     *
+     * @return Role[] 
+     */
+    public function getRoles()
+    {
+        if ($this->isAdmin){
+            return array('ROLE_ADMIN');
+        }
+        else{
+            return array('ROLE_USER');
+        }
+    }
+
+     /**
+     *  Erase credential
+     */
+    public function eraseCredentials()
+    {
+    }
+    
+    function getIsAdmin() {
+        return $this->isAdmin;
+    }
+
+    function setIsAdmin($isAdmin) {
+        $this->isAdmin = $isAdmin;
+    }
+
+    function setUsername($username) {
+        $this->username = $username;
+    }
+
+    function setSalt($salt) {
+        $this->salt = $salt;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setCart(ArrayCollection $cart) {
+        $this->cart = $cart;
+    }
+
+    function setPastOrders(ArrayCollection $pastOrders) {
+        $this->pastOrders = $pastOrders;
+    }
+    
+    /* Permet à l'utilisateur de rester connecté */
+    
+   /**
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+        ));
+    }
+
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+        ) = unserialize($serialized);
+    }
+
+
 }

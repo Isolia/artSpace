@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Resources/views/Shop/index.html.twig</file>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Controller/CreateDataController.php</file>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Entity/Product.php</file>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/ArtSpaceShopBundle.php</file>
-            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Resources/views/Shop/pricing.html.twig</file>
+            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Resources/views/User/login.html.twig</file>
+            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Controller/UserController.php</file>
+            <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Entity/User.php</file>
+            <file>file:/C:/wamp/www/artSpace/web/css/main.css</file>
             <file>file:/C:/wamp/www/artSpace/src/ArtSpace/ShopBundle/Controller/DefaultController.php</file>
         </group>
     </open-files>

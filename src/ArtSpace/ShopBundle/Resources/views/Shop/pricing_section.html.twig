@@ -9,16 +9,15 @@
             </section> <!-- Fin Started -->
             <div class="container">
                 <section id="offer">
-                    
-                    
-                    {% for section in sections %}
+                    {% for product in products %}
                     <div class="standard">
                         <div class="standardTitle">
-                            <h2>{{ section.name }}</h2>
-                            
-                            <p class="annual">Prices from : ... </p>
+                            <h2>{{ product.name }}</h2>
+                            <p><span class="exp">$</span><span class="number">{{ product.price }}</span><span>/MO</span></p>
+                            <p class="annual">Billed annually or $10 month-to-month</p>
                         </div> <!-- Fin standard title -->
 
+                        {{ product.description | raw }}
                     </div> <!-- Fin Standard -->
                     {% endfor %}
                   

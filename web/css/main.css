@@ -184,6 +184,7 @@ hr{
 header{
     height: 130px;
     line-height: 130px;
+    border-bottom: 1px solid #CCC;
 }
 
 /*** Navigation ***/

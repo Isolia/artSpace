@@ -1,6 +1,7 @@
 <?php
 
 namespace ArtSpace\ShopBundle\Entity;
+use ArtSpace\ShopBundle\Entity\Section;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,7 +32,7 @@ class Product
     private $name;
 
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="price", type="decimal")
      */
@@ -43,6 +44,14 @@ class Product
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+    
+    /**
+     * @var Section
+     *
+     * @ORM\ManyToOne(targetEntity="Section")
+     * @ORM\JoinColumn(name="section_id", referencedColumnName="id", nullable=false)
+     */
+    private $section;
 
 
     /**
@@ -122,5 +131,28 @@ class Product
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set section
+     *
+     * @param \Section $section
+     * @return Product
+     */
+    public function setSection(Section $section)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \Section 
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 }
