@@ -14,9 +14,17 @@ security:
             entity: { class: ArtSpaceShopBundle:User, property: username }
 
     firewalls:
-        admin_area:
-            pattern:    ^/admin
+        artSpace_area:
+            pattern:    ^/
             http_basic: ~
+            anonymous:  ~
+            form_login:
+                login_path:  /login
+                check_path:  /logincheck
+            logout:
+                path: /logout
+                target: /
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/pricing, roles: ROLE_ADMIN }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

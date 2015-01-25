@@ -233,7 +233,6 @@ class User implements UserInterface, \Serializable
         $this->pastOrders = new ArrayCollection();
         
         $this->isAdmin = false;
-        $this->salt = md5(uniqid(null, true));
     }
 
     /**

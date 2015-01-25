@@ -1,0 +1,30 @@
+{% extends 'ArtSpaceShopBundle::base.html.twig' %}
+
+{% block subtitle %}| Pricing{% endblock  %}
+
+{% block body %}
+                <section id="trial">
+
+                </section>
+                <div class="container">
+                    <section id="offer">
+                        <div class="pricinglink">
+                            <a href="{{ path ('art_space_shop_pricing')}}"> Return to sections </a>
+                        </div>
+                        {% for product in products %}
+                        <div class="standard">
+                            <a href="{{path ('art_space_shop_pricing_product', {'sectionname':section.name, 'productname':product.name}) }}">
+                                <div class="standardTitle">
+                                    <h2>{{ product.name }}</h2>
+                                    <p><span class="exp">$</span><span class="number">{{ product.price }}</span><span>/MO</span></p>
+                                </div> <!-- Fin standard title -->
+                            </a>
+
+                        </div> <!-- Fin Standard -->
+                        {% endfor %}
+
+                    </section> <!-- Fin Offer -->
+
+                </div> <!-- Fin Container -->
+{% endblock  %}
+

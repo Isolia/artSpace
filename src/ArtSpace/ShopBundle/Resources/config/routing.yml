@@ -1,10 +1,22 @@
 art_space_shop_index:
     path:     /index
     defaults: { _controller: ArtSpaceShopBundle:Default:index }
+
+art_space_shop:
+    path:     /
+    defaults: { _controller: ArtSpaceShopBundle:Default:index }
     
 art_space_shop_pricing:
     path:     /pricing
-    defaults: { _controller: ArtSpaceShopBundle:Default:pricing }
+    defaults: { _controller: ArtSpaceShopBundle:Pricing:pricing }
+    
+art_space_shop_pricing_section:
+    path:     /pricing/{sectionname}
+    defaults: { _controller: ArtSpaceShopBundle:Pricing:pricingSection }
+    
+art_space_shop_pricing_product:
+    path:     /pricing/{sectionname}/{productname}
+    defaults: { _controller: ArtSpaceShopBundle:Pricing:pricingProduct }
     
 art_space_shop_login:
     path:     /login
@@ -17,3 +29,17 @@ art_space_shop_register:
 art_space_shop_createdata:
     path:     /createdata
     defaults: { _controller: ArtSpaceShopBundle:CreateData:index }
+    
+art_space_shop_login_check:
+    path:     /logincheck
+
+art_space_shop_logout:
+    path:     /logout
+    
+art_space_shop_add_to_cart:
+    path:     /addtocart/{productId}
+    defaults: { _controller: ArtSpaceShopBundle:User:addToCart}
+    
+art_space_shop_cart:
+    path:     /cart
+    defaults: { _controller: ArtSpaceShopBundle:User:viewCart}

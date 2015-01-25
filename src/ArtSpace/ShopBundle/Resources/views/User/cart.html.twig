@@ -1,0 +1,37 @@
+{% extends 'ArtSpaceShopBundle::base.html.twig' %}
+
+{% block subtitle %}| Cart{% endblock  %}
+
+{% block body %}
+                <section id="trial">
+
+                </section>
+                <div class="container">
+                    <section id="panier"> 
+                        <div class="entetepanier">
+                            <span class="name"> Product name </span>
+                            <span class="quantity"> Quantity </span>
+                            <span class="price"> Price </span>
+                            <span class="deleted"> Deleted </span>
+                        </div>
+                        {% for product in products %}
+                        <div class="product">
+                            <span class="name"> {{product.name}} </span>
+                            <span class="quantity"> 1 </span>
+                            <span class="price"> {{product.price}}$ </span>
+                            <span class="deleted"> </span>
+                        </div>
+                        {% endfor %}
+                        <div class="total">
+                            Total :
+                        </div>
+                                
+                    </section> <!-- Fin Offer -->       
+                </div>
+                        
+
+                </section> <!-- Fin Offer -->
+
+                </div> <!-- Fin Container -->
+{% endblock  %}
+
