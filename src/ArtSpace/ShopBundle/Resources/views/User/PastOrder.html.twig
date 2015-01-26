@@ -3,6 +3,25 @@
 {% block subtitle %}| Past order{% endblock  %}
 
 {% block body %}
+                <section id="title_section">
+                    <h1>Past Order</h1>
+                </section>
+                <div class="container">
+                                        <section id="panier"> 
+                        
+                        <table cellspacing='0'>
+                            <tr>
+                                <th>Product name</th><th>Quantity</th><th>Price</th><th>Total</th>
+                            </tr>
+                        {% for cartitem in cartitems %}
+                            <tr>
+                                <td></td><td></td><td></td><td></td>
+                            </tr>
+                        {% endfor %}
 
+                        </table>
+
+                    </section> <!-- Fin Offer --> 
+                </div> <!-- Fin Container -->
 {% endblock  %}
 

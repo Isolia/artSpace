@@ -43,3 +43,19 @@ art_space_shop_add_to_cart:
 art_space_shop_cart:
     path:     /cart
     defaults: { _controller: ArtSpaceShopBundle:User:viewCart}
+    
+art_space_shop_submit_cart:
+    path:     /submitcart
+    defaults: { _controller: ArtSpaceShopBundle:User:submitCart}
+    
+art_space_shop_increase_quantity:
+    path:     /increasequantity/{cartItemId}
+    defaults: { _controller: ArtSpaceShopBundle:User:increaseQuantity}
+
+art_space_shop_decrease_quantity:
+    path:     /decreasequantity/{cartItemId}
+    defaults: { _controller: ArtSpaceShopBundle:User:decreaseQuantity}
+    
+art_space_shop_past_order:
+    path:     /pastorder/{userid}
+    defaults: { _controller: ArtSpaceShopBundle:User:pastOrder}

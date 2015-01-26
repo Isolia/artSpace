@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 
+use ArtSpace\ShopBundle\Entity\CartItem;
+use ArtSpace\ShopBundle\Entity\PastOrder;
+
 class UserController extends Controller
 {
     public function loginAction(Request $request){
@@ -37,7 +40,7 @@ class UserController extends Controller
          );
     }
     
-    /* Création de la vue du formulaire */
+    // Création de la vue du formulaire
     public function registerAction(Request $request)
     {    
         //on créer un utilisateur vide
@@ -79,6 +82,7 @@ class UserController extends Controller
     
     public function addToCartAction($productId)
     {   
+        $em = $this->getDoctrine()->getManager();        
         // On récupère l'objet (l'instance) du user connecté
         $user = $this->getUser();
         
@@ -88,12 +92,25 @@ class UserController extends Controller
             ->findOneById($productId);
         
         // On ajoute le produit au caddie
-        $user->addCart($product);
+        $existingCartItem = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:CartItem')
+            ->findOneBy(array('user' => $user, 'product' => $product));
         
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
+        // Verifie si le produit existe dans le caddie sinon creation de l'item dans le caddie 
+        if($existingCartItem){
+            $existingCartItem->setQuantity( 1 + $existingCartItem->getQuantity() );
+            $em->persist($existingCartItem);
+        }
+        else
+        {
+            $cartItem = new CartItem;
+            $cartItem->setProduct($product);
+            $cartItem->setUser($user);
+            $cartItem->setQuantity(1);
+               
+            $em->persist($cartItem);
+        }
         $em->flush();
-            
         return $this->redirect($this->generateUrl('art_space_shop_cart'));
     }
     
@@ -101,8 +118,90 @@ class UserController extends Controller
     {
         $user = $this->getUser();
         
-        $products= $user->getCart();
+        // Récupére tout les items du caddie de l'utilisateur
+        $cartitems = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:CartItem')
+            ->findByUser($user);
         
-        return $this->render('ArtSpaceShopBundle:User:cart.html.twig', array('products'=>$products));
+        // Calcul le total du caddie
+        $total = 0;
+        foreach($cartitems as $cartitem){
+            $total = $total + ( $cartitem->getProduct()->getPrice() * $cartitem->getQuantity() );
+        }
+
+        return $this->render('ArtSpaceShopBundle:User:cart.html.twig', array('cartitems'=>$cartitems, 'total'=>$total));
     }
+    
+        public function submitCartAction()
+    {
+        // Selectionne tout le chariot
+        $user = $this->getUser();
+        $cart = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:CartItem')
+            ->findByUser($user);
+        
+        // Transfere le caddie dans les commandes passées (PastOrder)
+        $em = $this->getDoctrine()->getManager();  
+        foreach($cart as $cartItem){
+            $pastOrder = new PastOrder;
+            $pastOrder->setProduct($cartItem->getProduct());
+            $pastOrder->setUser($cartItem->getUser());
+            $pastOrder->setQuantity($cartItem->getQuantity());
+            $pastOrder->setDate(new \DateTime);
+            
+            $em->persist($pastOrder);
+            $em->remove($cartItem);
+        }
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('art_space_shop_cart'));
+    }
+    
+    public function increaseQuantityAction($cartItemId){
+        $user = $this->getUser();
+        $cartItem = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:CartItem')
+            ->findOneById($cartItemId);
+        
+        // securité
+        if ($user!=$cartItem->getUser()){
+            return $this->redirect($this->generateUrl('art_space_shop_index'));
+        }
+        
+        $cartItem->setQuantity(1+$cartItem->getQuantity());
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($cartItem);
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('art_space_shop_cart'));
+    }
+    
+    public function decreaseQuantityAction($cartItemId){
+        $user = $this->getUser();
+        $cartItem = $this->getDoctrine()
+            ->getRepository('ArtSpaceShopBundle:CartItem')
+            ->findOneById($cartItemId);
+        
+        // securité
+        if ($user!=$cartItem->getUser()){
+            return $this->redirect($this->generateUrl('art_space_shop_index'));
+        }
+        
+        $cartItem->setQuantity($cartItem->getQuantity()-1);
+        
+        $em = $this->getDoctrine()->getManager();
+        if($cartItem->getQuantity()>0){
+            $em->persist($cartItem);
+        }
+        else{
+            $em->remove($cartItem);
+        }
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('art_space_shop_cart'));
+    }
+    
+    public function pastOrderAction()
+    {
 }

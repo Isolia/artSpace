@@ -5,12 +5,12 @@ namespace ArtSpace\ShopBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PastOrder
+ * CartItem
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class PastOrder
+class CartItem
 {
     /**
      * @var integer
@@ -20,13 +20,6 @@ class PastOrder
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date")
-     */
-    private $date;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="pastOrders")
@@ -39,14 +32,15 @@ class PastOrder
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id", nullable=false)
      */
     private $product;
-    
-     /**
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="quantity", type="integer")
      */
     private $quantity;
-    
+
+
     /**
      * Get id
      *
@@ -58,35 +52,12 @@ class PastOrder
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return PastOrder
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
      * Set user
      *
-     * @param \ArtSpace\ShopBundle\Entity\User $user
-     * @return PastOrder
+     * @param User $user
+     * @return CartItem
      */
-    public function setUser(\ArtSpace\ShopBundle\Entity\User $user = null)
+    public function setUser($user)
     {
         $this->user = $user;
 
@@ -96,7 +67,7 @@ class PastOrder
     /**
      * Get user
      *
-     * @return \ArtSpace\ShopBundle\Entity\User 
+     * @return User 
      */
     public function getUser()
     {
@@ -106,10 +77,10 @@ class PastOrder
     /**
      * Set product
      *
-     * @param \ArtSpace\ShopBundle\Entity\Product $product
-     * @return PastOrder
+     * @param Product $product
+     * @return CartItem
      */
-    public function setProduct(\ArtSpace\ShopBundle\Entity\Product $product)
+    public function setProduct($product)
     {
         $this->product = $product;
 
@@ -119,19 +90,33 @@ class PastOrder
     /**
      * Get product
      *
-     * @return \ArtSpace\ShopBundle\Entity\Product 
+     * @return Product 
      */
     public function getProduct()
     {
         return $this->product;
     }
-    
-    function getQuantity() {
-        return $this->quantity;
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return CartItem
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
     }
 
-    function setQuantity($quantity) {
-        $this->quantity = $quantity;
+    /**
+     * Get quantity
+     *
+     * @return integer 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
- 
 }

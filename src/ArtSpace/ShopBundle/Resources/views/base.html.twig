@@ -42,12 +42,13 @@
                         <ul>
                             <li><a href="{{ path('art_space_shop_index')}}">Tour</a></li>
                             <li><a href="#">Template</a></li>
-                            <li><a href="{{ path('art_space_shop_cart')}}">Cart</a></li>
+                            <li><a href="#">Developers</a></li>
                             <li><a href="{{ path('art_space_shop_pricing')}}">Pricing</a></li>
-                            <li><a href="{{ path('art_space_shop_register')}}">Register</a></li>
+                            <li><a href="{{ path('art_space_shop_cart')}}">Cart ( {{total}}$ )</a></li>
                             {% if is_granted('ROLE_USER') %}
-                            <li>Welcome {{app.user.name}} | <a href="{{ path('art_space_shop_logout')}}">Logout</a></li>
+                            <li><span class="welcome">Welcome {{app.user.name}} | </span><a href="{{ path('art_space_shop_logout')}}">Logout</a></li>
                             {% else %}
+                            <li><a href="{{ path('art_space_shop_register')}}">Register</a></li>
                             <li> <a href="{{ path('art_space_shop_login')}}">Login</a></li>
                             {% endif %}
                         </ul>
@@ -63,12 +64,12 @@
                     <div class="first-column">
                         <h4>Product</h4>
                         <ul>
-                            <li><a href="index.php">Tour</a></li>
+                            <li><a href="{{ path('art_space_shop_index')}}">Tour</a></li>
                             <li><a href="#">Templates</a></li>
                             <li><a href="#">Mobile Apps</a></li>
                             <li><a href="#">Developers</a></li>
-                            <li><a href="pricing.php">Pricing</a></li>
-                            <li><a href="login.php">Sign UP</a></li>
+                            <li><a href="{{ path('art_space_shop_pricing')}}">Pricing</a></li>
+                            <li><a href="{{ path('art_space_shop_login')}}">Sign UP</a></li>
                         </ul>
                     </div> <!-- Fin first-column -->
 

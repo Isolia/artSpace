@@ -3,8 +3,8 @@
 {% block subtitle %}| Pricing{% endblock  %}
 
 {% block body %}
-                <section id="trial">
-
+                <section id="title_section">
+                    <h1>Make a choice</h1>
                 </section> <!-- Fin Started -->
                 <div class="container">
                     <section id="offer">
@@ -15,7 +15,7 @@
                                 <div class="standardTitle">
                                     <h2>{{ product.name }}</h2>
                                     <p><span class="exp">$</span><span class="number">{{ product.price }}</span><span>/MO</span></p>
-                                    <a href="{{ path ('art_space_shop_add_to_cart', {'productId':product.id}) }}">Add to cart </a>
+                                    <a href="{{ path ('art_space_shop_add_to_cart', {'productId':product.id}) }}" class="addtoCart">Add to cart </a>
                                 </div> <!-- Fin standard title -->
                                 {{ product.description | raw }}
 

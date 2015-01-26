@@ -205,6 +205,7 @@ header li{
     padding-left: 30px;
     text-transform: uppercase;
 }
+
 nav li a:link,
 nav li a:visited{
     color:#ccc;
@@ -213,6 +214,12 @@ nav li a:visited{
 nav li a:hover,
 nav li a:active{
     color:black;
+}
+
+.welcome{
+    font-size: 12px;
+    font-weight: bold;
+    color: #58CB8E;
 }
 
 .nameArtist{
@@ -550,7 +557,7 @@ footer img{
     padding-top: 30px;
 }
 /*==========================================================================*/
-/********************************* SLIDER 1***********************************/
+/********************************* SLIDER 1**********************************/
 /*==========================================================================*/
 .bckSlider .bx-wrapper{
     width: 884px;
@@ -694,6 +701,7 @@ footer img{
     vertical-align: top;
     margin-top: 85px;
     width: 477px;
+    margin-bottom: 100px;
     /* position: relative; */
 }
 
@@ -718,7 +726,7 @@ footer img{
 }
 
 .standardTitle .exp{
-    right: 275px;
+    right: 305px;
     top: 125px;
 }
 
@@ -794,18 +802,18 @@ footer img{
     margin-top: 25px;
 }
 .offerTitle{
-    text-align: center;
     font-size: 20px;
-    color: black;
+    color: #54ca90;
     line-height: 1.5em;
     text-transform: uppercase;
     padding-top: 50px;
 }
 
+hr::after,
 .offerTitle::after{
     content: '';
     display: block;
-    background-color: black;
+    background-color: #54ca90;
     height: 2px;
     margin-top: 15px;
     margin-bottom: 20px;  
@@ -847,14 +855,168 @@ footer img{
     width: 300px;
 }
 
+.pricinglink {
+    text-align: right;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.pricinglink a:link,
+.pricinglink a:visited{
+    color: #58CB8E;
+}
+
+.pricinglink a:hover,
+.pricinglink a:active{
+    color:black;
+}
+
+#title_section h1{
+    font-weight: bold;
+    font-size: 47px;
+    text-transform: uppercase;
+    line-height: 55px;
+}
+
+
+#title_section h1::before{
+    content:'';
+    display: block;
+    width: 300px;
+    background-color: white;
+    height: 5px;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+
+#title_section{
+    background-image: url('../img/hero-pricing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center; 
+    color: white;
+}
+
+.addtoCart {
+    float: right;
+    margin-right: 25px;
+    background-color: #58CB8E;
+    padding: 5px 10px;
+    border: solid 1px white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: white;
+}
+
 /*==========================================================================*/
 /********************************* REGISTER *********************************/
 /*==========================================================================*/
-
+.formulaire,
 #appbundle_user{
-    margin-left: 50px;
+    width: 326px;
+    margin: 50px auto 100px;
+    padding: 20px;
+    background-color:#CCC;
+}
+.formulaire label,
+#appbundle_user label{
+    display: block;
+    width: 150px;
+    float: left;
 }
 
+button{
+    background-color: #54ca90;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 71px;
+    padding: 3px 65px;
+}
+
+.login{
+    margin-left: 150px;
+}
+/*==========================================================================*/
+/*********************************** Cart ***********************************/
+/*==========================================================================*/
+
+table{
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 50px auto 25px;
+    background:#eaebec;
+}
+
+table th{
+    font-weight: bold;
+    padding:10px 25px;
+    background: black;
+    color: #54ca90;
+    
+    border:1px solid #999;
+}
+
+table tr{
+	text-align: center;
+	padding-left:20px;
+}
+
+table th:first-child,
+table tr td:first-child{
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}
+
+table tr td {
+    padding:18px;
+    border:1px solid #e0e0e0;
+    // Interieure
+    border-bottom:1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+}
+
+table .empty{
+    background-color: white;
+    border:0px;
+}
+
+table .total{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+table img{
+    padding: 0 10px;
+}
+
+.submitOrder{
+    background-color: #54ca90;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 526px;
+    padding: 3px 40px;
+    border: solid 1px #e0e0e0;
+    
+}
+
+.submitOrder:hover{
+	background: black;
+	
+}
+
+.submit{
+    padding-bottom: 100px;
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */

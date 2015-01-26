@@ -3,35 +3,28 @@
 {% block subtitle %}| Cart{% endblock  %}
 
 {% block body %}
-                <section id="trial">
-
+                <section id="title_section">
+                    <h1>Cart</h1>
                 </section>
                 <div class="container">
                     <section id="panier"> 
-                        <div class="entetepanier">
-                            <span class="name"> Product name </span>
-                            <span class="quantity"> Quantity </span>
-                            <span class="price"> Price </span>
-                            <span class="deleted"> Deleted </span>
-                        </div>
-                        {% for product in products %}
-                        <div class="product">
-                            <span class="name"> {{product.name}} </span>
-                            <span class="quantity"> 1 </span>
-                            <span class="price"> {{product.price}}$ </span>
-                            <span class="deleted"> </span>
-                        </div>
-                        {% endfor %}
-                        <div class="total">
-                            Total :
-                        </div>
-                                
-                    </section> <!-- Fin Offer -->       
-                </div>
                         
-
-                </section> <!-- Fin Offer -->
-
+                        <table cellspacing='0'>
+                            <tr>
+                                <th>Product name</th><th>Quantity</th><th>Price</th><th>Total</th>
+                            </tr>
+                        {% for cartitem in cartitems %}
+                            <tr>
+                                <td>{{cartitem.product.name}}</td><td><a href="{{path('art_space_shop_decrease_quantity', {'cartItemId':cartitem.id} )}}"><img src="{{ asset ('img/moins.png') }}" alt="Moins"></a>{{cartitem.quantity}}<a href="{{path('art_space_shop_increase_quantity', {'cartItemId':cartitem.id} )}}"><img src="{{ asset ('img/plus.png') }}" alt="Plus"></a></td><td>{{cartitem.product.price}}$ </td><td class="total">??????$ </td>
+                            </tr>
+                        {% endfor %}
+                            <tr>
+                                <td class="empty"></td><td class="empty"></td><td class="total">Total :</td><td class="total">{{total}}$</td>
+                            </tr>
+                        </table>
+                                <div class="submit"><a href="{{path ('art_space_shop_submit_cart') }}" class="submitOrder"> Submit order</a></div>
+                    </section> <!-- Fin Offer -->       
                 </div> <!-- Fin Container -->
+
 {% endblock  %}
 

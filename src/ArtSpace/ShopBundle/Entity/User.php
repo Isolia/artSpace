@@ -85,21 +85,6 @@ class User implements UserInterface, \Serializable
      */
     
     private $birthdate;
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Product", cascade={"persist"})
-     * @ORM\JoinTable(name="cart")
-     */
-    private $cart;
-    
-     /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="PastOrder", mappedBy="user", cascade={"persist"})
-     */
-    private $pastOrders;
    
     /**
      * Get id
@@ -235,72 +220,6 @@ class User implements UserInterface, \Serializable
         $this->isAdmin = false;
     }
 
-    /**
-     * Add cart
-     *
-     * @param \ArtSpace\ShopBundle\Entity\Product $cart
-     * @return User
-     */
-    public function addCart(\ArtSpace\ShopBundle\Entity\Product $cart)
-    {
-        $this->cart[] = $cart;
-
-        return $this;
-    }
-
-    /**
-     * Remove cart
-     *
-     * @param \ArtSpace\ShopBundle\Entity\Product $cart
-     */
-    public function removeCart(\ArtSpace\ShopBundle\Entity\Product $cart)
-    {
-        $this->cart->removeElement($cart);
-    }
-
-    /**
-     * Get cart
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCart()
-    {
-        return $this->cart;
-    }
-
-    /**
-     * Add pastOrders
-     *
-     * @param \ArtSpace\ShopBundle\Entity\PastOrder $pastOrders
-     * @return User
-     */
-    public function addPastOrder(\ArtSpace\ShopBundle\Entity\PastOrder $pastOrders)
-    {
-        $this->pastOrders[] = $pastOrders;
-
-        return $this;
-    }
-
-    /**
-     * Remove pastOrders
-     *
-     * @param \ArtSpace\ShopBundle\Entity\PastOrder $pastOrders
-     */
-    public function removePastOrder(\ArtSpace\ShopBundle\Entity\PastOrder $pastOrders)
-    {
-        $this->pastOrders->removeElement($pastOrders);
-    }
-
-    /**
-     * Get pastOrders
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPastOrders()
-    {
-        return $this->pastOrders;
-    }
-    
      /**
      * Get username
      *
@@ -373,13 +292,6 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
     }
 
-    function setCart(ArrayCollection $cart) {
-        $this->cart = $cart;
-    }
-
-    function setPastOrders(ArrayCollection $pastOrders) {
-        $this->pastOrders = $pastOrders;
-    }
     
     /* Permet à l'utilisateur de rester connecté */
     
